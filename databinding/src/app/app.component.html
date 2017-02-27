@@ -1,0 +1,13 @@
+<h1>
+  {{title}}
+</h1>
+<h4>{{greeting}}</h4>
+<h2>Voorbeeld van one way binding</h2>
+<span *ngIf="show">Not shown</span>
+<span *ngIf="!show">Shown</span><br />
+<input [value]="greeting" (input)=onEvent($event) /> <!-- Binden van waarde aan klasse, kan in 2 richtingen -->
+<input [attr.value]="greeting" (input)=onEvent($event)  /> <!-- Attribute binding -->
+<br/>
+<h2>Voorbeeld van two way binding</h2>
+<h4>{{binding}}</h4>
+<input [(ngModel)]="binding" />

@@ -1,0 +1,13 @@
+<h1>
+  {{title}}
+</h1>
+<nav>
+  <a routerLink="./product/1234" routerLinkActive="active">Product Detail</a>
+  <a routerLink="./home" routerLinkActive="active">Home</a>
+  <a routerLink="./luxury" routerLinkActive="active">Luxury</a>
+  <a [routerLink]="[{outlets: {aux:'chat'}}]" routerLinkActive="active">Chat</a>
+  <a [routerLink]="[{outlets: {aux:null}}]" routerLinkActive="active">Close chat</a>
+  <input type="button" value="Navigate to Product Detail" (click)="navigateToProductDetail()" />
+</nav>
+<router-outlet></router-outlet>
+<router-outlet name="aux"></router-outlet>
