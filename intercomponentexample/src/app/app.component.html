@@ -1,0 +1,8 @@
+<h1>
+  {{title}}
+</h1>
+<child-comp [externalString]="testing"></child-comp>
+<stock-comp (lastPrice)='priceQuoteHandler($event)' ></stock-comp>
+<h1> Output in app component </h1>
+<h4>{{ stockSymbol }}</h4>
+<h4>{{ price }}</h4>
