@@ -1,0 +1,1 @@
+export { TemplateFormComponent } from './template';

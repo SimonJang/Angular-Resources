@@ -1,0 +1,12 @@
+<h2>Template form example</h2>
+<h3>See console for output</h3>
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <!-- Insert form fields here -->
+    <div>Username: <input type="text" name="username" ngModel></div>
+    <div>SSN: <input type="text" name="ssn" ngModel></div>
+    <div ngModelGroup="passwordGroup">
+        <div>Password: <input type="text" name="password" ngModel></div>
+        <div>Confirm password: <input type="text" name="pconfirm" ngModel></div>
+    </div>
+    <button type="submit">Submit</button>
+</form>
