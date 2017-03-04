@@ -1,18 +1,39 @@
-import {Component,  Input, OnInit} from '@angular/core'; // <1>
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
-  templateUrl: './stars.html',
-  styles: [` .starrating { color: #d17581; }`],
-  selector: 'auction-stars'
+  selector: 'auction-stars',
+  styles: [`.starrating { color: #d17581; }`],
+  templateUrl: './stars.html'
 })
-export class StarsComponent implements OnInit {
-  @Input() count: number = 5; // <1>
-  @Input() rating: number = 0; // <2> // wordt ingegeven via product-detail.component
-  stars: boolean[] = []; // <3>
+export class StarsComponent {
+  private _rating: number;
+  private stars: boolean[];
 
-  ngOnInit() { // <4>
-    for (let i = 1; i <= this.count; i++) {
-      this.stars.push(i > this.rating);
+  private maxStars: number = 5;
+
+  @Input()
+  readonly: boolean = true;
+
+  @Input()
+  get rating(): number {
+    return this._rating;
+  }
+
+  set rating(value: number) {
+    this._rating = value || 0;
+    // Fills a new array with max length stars with true values depending on rating
+    this.stars = Array(this.maxStars).fill(true, 0, this.rating);
+  }
+
+  // Can be used in 2 way binding with rating since it has the suffix change
+  @Output()
+  ratingChange: EventEmitter<number> = new EventEmitter();
+
+  fillStarsWithColor(index) {
+
+    if (!this.readonly) {
+      this.rating = index + 1;
+      this.ratingChange.emit(this.rating);
     }
   }
 }

@@ -7,11 +7,20 @@ import { AppComponent } from './app.component';
 import { ChildComponent } from './components/child.component';
 import { StockComponent } from './components/stock.component';
 
+import { ChildTemplateComponent } from './components/templatechange';
+import { ParentTemplateComponent } from './components/templatechange';
+
+import { ChildComComponent } from './components/communicatingwithchildapi';
+import { ParentComComponent } from './components/communicatingwithchildapi';
+
 @NgModule({
   declarations: [
     AppComponent,
     ChildComponent,
-    StockComponent
+    StockComponent,
+    ChildTemplateComponent,
+    ParentTemplateComponent,
+    ChildComComponent
   ],
   imports: [
     BrowserModule,
