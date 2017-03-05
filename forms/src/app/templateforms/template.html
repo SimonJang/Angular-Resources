@@ -8,5 +8,9 @@
         <div>Password: <input type="text" name="password" ngModel></div>
         <div>Confirm password: <input type="text" name="pconfirm" ngModel></div>
     </div>
+    <div>
+        SSN: <input type="text" name="my-ssn" ngModel ssn>
+           <span [hidden]="!f.form.hasError('ssn', 'my-ssn')">SSN is invalid</span>
+    </div>
     <button type="submit">Submit</button>
 </form>

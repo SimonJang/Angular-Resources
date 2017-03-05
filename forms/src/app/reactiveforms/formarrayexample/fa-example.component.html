@@ -1,0 +1,9 @@
+<h1>Example with FormArray</h1>
+<form [formGroup]="formModel">
+<ul formArrayName="emails">
+    <li *ngFor="let e of formModel.get('emails').controls; let i = index">
+        <input [formControlName]="i" >
+    </li>
+    <button type="button" (click)="addEmail()">Add Email</button>
+</ul>
+</form>
